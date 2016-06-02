@@ -80,7 +80,6 @@ public class display extends JApplet {
       try {
 		contentView = new ContentPanel(null);
 	} catch (JAXBException | IOException e) {
-		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
       contentView.addNextActionListener(buttonListener);
@@ -91,9 +90,7 @@ public class display extends JApplet {
       
       add(contentView, contentView.getName());
       add(pageView,pageView.getName());
- 
    }
-   
 }
  
 

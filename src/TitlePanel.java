@@ -12,5 +12,9 @@ class TitlePanel extends datePanel {
    public TitlePanel(Graphics g) {
       super(NAME, g);
    }
+   
+   public String toString() {
+	   return date;
+   }
  
 }

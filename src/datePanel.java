@@ -16,8 +16,8 @@ abstract class datePanel extends JPanel {
    
    private JButton next = new JButton("Next");
  
-   public datePanel(String name,Graphics g) {
-	   
+   public datePanel(String name, Graphics g) {
+	  
       setName(name);
       JLabel label = new JLabel(getName(), SwingConstants.CENTER);
       label.setLayout(null);
@@ -25,7 +25,6 @@ abstract class datePanel extends JPanel {
       label.setFont(label.getFont().deriveFont(Font.BOLD, FONT_SIZE));
 
 	  label.setForeground(Color.white);
-	 
  
       JPanel btnPanel = new JPanel(new GridBagLayout());
       btnPanel.add(next);

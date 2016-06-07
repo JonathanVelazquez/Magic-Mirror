@@ -1,4 +1,7 @@
 import java.awt.Graphics;
+import java.io.IOException;
+
+import javax.xml.bind.JAXBException;
 
 @SuppressWarnings("serial")
 class TitlePanel extends datePanel {
@@ -9,12 +12,18 @@ class TitlePanel extends datePanel {
 	
    static String NAME = date;
  
-   public TitlePanel(Graphics g) {
+   public TitlePanel(Graphics g) throws JAXBException, IOException{
       super(NAME, g);
    }
    
    public String toString() {
-	   return date;
+	   String retVal = "";
+	   
+	
+			   
+			   retVal += "<html><br><br><br><center>"+ date+" <br><br> <ce<br></html>";
+			   
+	   return retVal;
    }
  
 }

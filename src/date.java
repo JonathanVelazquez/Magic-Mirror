@@ -22,7 +22,7 @@ public class date {
 		
         String dayEnd;
         switch (dayEnding%10) {
-            case 1:  dayEnd = "ist";
+            case 1:  dayEnd = "st";
                      break;
             case 2:  dayEnd = "nd";
                      break;

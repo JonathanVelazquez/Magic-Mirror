@@ -1,4 +1,5 @@
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Cursor;
@@ -12,6 +13,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseMotionAdapter;
 import java.util.ArrayList;
 
+import javax.swing.AbstractAction;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
@@ -34,7 +36,9 @@ private boolean                    isSlideInProgress = false;
 private final JPanel               glassPane;
 {
     glassPane = new JPanel();
+    glassPane.setBackground(Color.black);
     glassPane.setOpaque(false);
+   
     glassPane.addMouseListener(new MouseAdapter() {
     });
     glassPane.addMouseMotionListener(new MouseMotionAdapter() {
@@ -44,6 +48,48 @@ private final JPanel               glassPane;
 }
 
 public PanelSlider42(final ParentType parent) {
+	
+	//Used for keyboard input
+//-----------------------------------------------------------------------------------------------------
+	//leftKeyboard
+    AbstractAction leftPressed = new AbstractAction() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+        
+            slideLeft();
+        }
+    };
+    
+    //rightKeyboard
+    AbstractAction rightPressed = new AbstractAction() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+        
+            slideRight();
+        }
+    };
+    
+    //up
+    AbstractAction upPressed = new AbstractAction() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+        
+        	slideTop();
+        }
+    };
+    
+    //rightKeyboard
+    AbstractAction downPressed = new AbstractAction() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+        
+            slideBottom();
+        }
+    };
+    
+    
+  //-----------------------------------------------------------------------------------------------------
+    
     if (parent == null) {
         throw new RuntimeException("ProgramCheck: Parent can not be null.");
     }
@@ -53,68 +99,86 @@ public PanelSlider42(final ParentType parent) {
         throw new RuntimeException("ProgramCheck: Parent type not supported. " + parent.getClass().getSimpleName());
     }
     this.parent = parent;
+    this.parent.setBackground(Color.black);
     attach();
+    basePanel.setBackground(Color.black);
     basePanel.setSize(parent.getSize());
-    basePanel.setLayout(new BorderLayout());
+   basePanel.setLayout(new BorderLayout());
+   
+    //basePanel.setBackground(Color.black);
     if (useSlideButton) {
-        final JPanel statusPanel = new JPanel();
-        basePanel.add(statusPanel, BorderLayout.SOUTH);
-        statusPanel.add(new JButton("Slide Left") {
-            private static final long serialVersionUID = 9204819004142223529L;
-            {
-                setMargin(new Insets(0, 0, 0, 0));
-            }
-            {
-                addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(final ActionEvent e) {
-                        slideLeft();
-                    }
-                });
-            }
-        });
-        statusPanel.add(new JButton("Slide Right") {
-            {
-                setMargin(new Insets(0, 0, 0, 0));
-            }
-            private static final long serialVersionUID = 9204819004142223529L;
-            {
-                addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(final ActionEvent e) {
-                        slideRight();
-                    }
-                });
-            }
-        });
-        statusPanel.add(new JButton("Slide Up") {
-            {
-                setMargin(new Insets(0, 0, 0, 0));
-            }
-            private static final long serialVersionUID = 9204819004142223529L;
-            {
-                addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(final ActionEvent e) {
-                        slideTop();
-                    }
-                });
-            }
-        });
-        statusPanel.add(new JButton("Slide Down") {
-            {
-                setMargin(new Insets(0, 0, 0, 0));
-            }
-            private static final long serialVersionUID = 9204819004142223529L;
-            {
-                addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(final ActionEvent e) {
-                        slideBottom();
-                    }
-                });
-            }
-        });
+         JPanel statusPanel = new JPanel();
+      //   statusPanel.setVisible(false);
+       // statusPanel.setBackground(Color.black);
+        basePanel.add(statusPanel);
+        //basePanel.setBackground(Color.black);
+        basePanel.setOpaque(false);
+      
+   
+
+ //Slide Left button
+//-----------------------------------------------------------------------------------------------------
+	JButton SlideLeft = new JButton();
+	statusPanel.add(SlideLeft);
+	SlideLeft.setOpaque(false);
+	SlideLeft.setContentAreaFilled(false);
+	SlideLeft.setBorderPainted(false);
+    SlideLeft.addActionListener(leftPressed);
+    
+  
+    SlideLeft.getInputMap(javax.swing.JComponent.WHEN_IN_FOCUSED_WINDOW).
+       put(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_LEFT,0), "A_pressed");
+       
+    SlideLeft.getActionMap().put("A_pressed", leftPressed);
+//-----------------------------------------------------------------------------------------------------
+       
+//Slide Right button
+//-----------------------------------------------------------------------------------------------------
+	JButton SlideRight = new JButton();
+		statusPanel.add(SlideRight);
+		SlideRight.setOpaque(false);
+		SlideRight.setContentAreaFilled(false);
+		SlideRight.setBorderPainted(false);
+            SlideRight.addActionListener(rightPressed);
+       
+            SlideRight.getInputMap(javax.swing.JComponent.WHEN_IN_FOCUSED_WINDOW).
+            put(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_RIGHT,0), "A_pressed");
+            
+            SlideRight.getActionMap().put("A_pressed", rightPressed);
+ //-----------------------------------------------------------------------------------------------------
+            //Slide Up button
+            //-----------------------------------------------------------------------------------------------------
+            	JButton SlideUp = new JButton();
+          	SlideUp.setOpaque(false);
+          	SlideUp.setContentAreaFilled(false);
+          	SlideUp.setBorderPainted(false);
+            		statusPanel.add(SlideUp);
+            		
+                        SlideUp.addActionListener(upPressed);
+                   
+                        SlideUp.getInputMap(javax.swing.JComponent.WHEN_IN_FOCUSED_WINDOW).
+                        put(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_UP,0), "A_pressed");
+                        
+                        SlideUp.getActionMap().put("A_pressed", upPressed);
+             //-----------------------------------------------------------------------------------------------------
+                     
+          //Slide Down button
+          //-----------------------------------------------------------------------------------------------------
+          	JButton SlideDown = new JButton();
+        	SlideDown.setOpaque(false);
+        	SlideDown.setContentAreaFilled(false);
+        	SlideDown.setBorderPainted(false);
+          		statusPanel.add(SlideDown);
+          		
+                      SlideDown.addActionListener(downPressed);
+                 
+                      SlideDown.getInputMap(javax.swing.JComponent.WHEN_IN_FOCUSED_WINDOW).
+                      put(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_DOWN,0), "A_pressed");
+                      
+                      SlideDown.getActionMap().put("A_pressed", downPressed);
+           //-----------------------------------------------------------------------------------------------------
+                       
+
     }
 }
 
@@ -124,8 +188,10 @@ public JPanel getBasePanel() {
 
 private void attach() {
     final ParentType w = this.parent;
+    //w.setBackground(Color.black);
     if (w instanceof JFrame) {
         final JFrame j = (JFrame) w;
+        //j.setBackground(Color.black);
         if (j.getContentPane().getComponents().length > 0) {
             throw new RuntimeException("ProgramCheck: Parent already contains content.");
         }
@@ -133,10 +199,12 @@ private void attach() {
     }
     if (w instanceof JDialog) {
         final JDialog j = (JDialog) w;
+        
         if (j.getContentPane().getComponents().length > 0) {
             throw new RuntimeException("ProgramCheck: Parent already contains content.");
         }
         j.getContentPane().add(basePanel);
+        //j.setBackground(Color.black);
     }
     if (w instanceof JWindow) {
         final JWindow j = (JWindow) w;
@@ -155,6 +223,8 @@ private void attach() {
 }
 
 public void addComponent(final Component component) {
+	component.setBackground(Color.BLACK);
+	basePanel.setBackground(Color.BLACK);
     if (jPanels.contains(component)) {
     }
     else {
@@ -163,7 +233,7 @@ public void addComponent(final Component component) {
             basePanel.add(component);
         }
         component.setSize(basePanel.getSize());
-        component.setLocation(0, 0);
+        component.setLocation(10, 10);
     }
 }
 
@@ -174,11 +244,11 @@ public void removeComponent(final Component component) {
 }
 
 public void slideLeft() {
-    slide(LEFT);
+    slide(RIGHT);
 }
 
 public void slideRight() {
-    slide(RIGHT);
+    slide(LEFT);
 }
 
 public void slideTop() {
@@ -191,10 +261,10 @@ public void slideBottom() {
 
 private void enableUserInput(final ParentType w) {
     if (w instanceof JFrame) {
-        ((JFrame) w).getGlassPane().setVisible(false);
+        ((JFrame) w).getGlassPane().setVisible(true);
     }
     if (w instanceof JDialog) {
-        ((JDialog) w).getGlassPane().setVisible(false);
+        ((JDialog) w).getGlassPane().setVisible(true);
     }
     if (w instanceof JWindow) {
         ((JWindow) w).getGlassPane().setVisible(false);
@@ -211,22 +281,25 @@ private void disableUserInput(final ParentType w) {
     if (w instanceof JWindow) {
         ((JWindow) w).setGlassPane(glassPane);
     }
-    glassPane.setVisible(true);
+   // glassPane.setVisible(true);
+    glassPane.setBackground(Color.BLACK);
 }
 
 private void enableTransparentOverylay() {
     if (parent instanceof JFrame) {
-        ((JFrame) parent).getContentPane().setBackground(jPanels.get(0).getBackground());
+    	parent.setBackground(Color.BLACK);
+    	
+        ((JFrame) parent).getContentPane().setBackground(Color.BLACK);
         parent.remove(basePanel);
         parent.validate();
     }
     if (parent instanceof JDialog) {
-        ((JDialog) parent).getContentPane().setBackground(jPanels.get(0).getBackground());
+        ((JDialog) parent).getContentPane().setBackground(Color.BLACK);
         parent.remove(basePanel);
         parent.validate();
     }
     if (parent instanceof JWindow) {
-        ((JWindow) parent).getContentPane().setBackground(jPanels.get(0).getBackground());
+        ((JWindow) parent).getContentPane().setBackground(Color.BLACK);
         parent.remove(basePanel);
         parent.validate();
     }

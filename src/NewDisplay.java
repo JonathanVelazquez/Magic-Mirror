@@ -4,6 +4,7 @@ import java.awt.Font;
 import java.awt.HeadlessException;
 import java.io.IOException;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -36,12 +37,12 @@ public class NewDisplay {
 					        ContentPanel contentView = null;
 					       // contentView.setBackground(Color.BLACK);
 					        
-					        try {
+					      
 					        	contentView = new ContentPanel(null);
 					        	
-					    	} catch (JAXBException | IOException e) {
-					    		e.printStackTrace();
-					    	}
+					    	
+					    	//	e.printStackTrace();
+					    	
 					        contentView.setBackground(Color.black);
 					        Color color = new Color(100, 0, 255);
 					        
@@ -57,12 +58,15 @@ public class NewDisplay {
 					        //date.setOpaque(true);
 					        
 					        //creates the weather display
+					   //     ImageIcon image = new ImageIcon("/Magic Mirror/src/BlackBackground.png");
+					        
 					        JButton weather = new JButton(contentView.toString());
+					       //weather.setIcon(image);
 					        weather.setFont(new Font("Helvetica", Font.BOLD, 70));
 					        weather.setForeground(Color.BLACK);
 					        weather.setVerticalAlignment(SwingConstants.TOP);
 					        weather.setBorderPainted(true);
-					        weather.setBackground(Color.BLACK);
+					        //weather.setBackground(Color.BLACK);
 					        
 					        JScrollPane scroller = new JScrollPane(jPanel);
 					        scroller.setBackground(Color.black);

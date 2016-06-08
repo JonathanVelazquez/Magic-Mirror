@@ -19,6 +19,7 @@ class ContentPanel extends datePanel {
 			//retVal+= "< div style=width:500px;height:100px;border:1px solid #000;></div>";
 			retVal += "<html><center><u>Current Weather</u> <br><br> <center>Bothell, WA<br>"
 					+ new weather().currentConditions() + " " + new weather().currentTemp() + "°F</html>";
+			
 		} catch (JAXBException e) {
 			e.printStackTrace();
 		} catch (IOException e) {

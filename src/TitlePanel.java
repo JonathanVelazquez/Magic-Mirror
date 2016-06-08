@@ -6,9 +6,11 @@ import javax.xml.bind.JAXBException;
 @SuppressWarnings("serial")
 class TitlePanel extends datePanel {
 	static date one = new date();
+	static date two = new date();
 	
 	  
 	 static String date = one.getDayofWeek()+", " + one.getMonth() +" "+ one.getDay();
+	 static String date2 = two.getTime();
 	
    static String NAME = date;
  
@@ -19,9 +21,10 @@ class TitlePanel extends datePanel {
    public String toString() {
 	   String retVal = "";
 	   
-	
+	   
 			   
-			   retVal += "<html><br><br><br><center>"+ date+" <br><br> <ce<br></html>";
+			   retVal += "<html><br><br><br><center>"+ date+"<br><br>"+System.currentTimeMillis()+" <br><br>  <ce<br></html>";
+			   
 			   
 	   return retVal;
    }

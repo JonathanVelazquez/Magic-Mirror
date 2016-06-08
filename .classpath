@@ -5,7 +5,7 @@
 	<classpathentry kind="lib" path="/Users/Jonathan/Downloads/java-json.jar"/>
 	<classpathentry kind="lib" path="/Users/Jonathan/Downloads/WeatherLibrary.jar"/>
 	<classpathentry kind="lib" path="/Users/Jonathan/Downloads/forecastio-lib-java-master/jar/ForecastIOLib-1.5.3-SNAPSHOT-jar-with-dependencies.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/yahoo-weather-java-api"/>
 	<classpathentry kind="lib" path="/Users/Jonathan/Downloads/WeatherLibrary-2.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/yahoo-weather-java-api"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

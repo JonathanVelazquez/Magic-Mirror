@@ -50,7 +50,7 @@ public class NewDisplay {
 					        JButton date = new JButton(titleView.toString());
 					        date.setBackground(Color.black);
 					        date.setFont(new Font("Helvetica", Font.BOLD, 70));
-					        date.setForeground(Color.WHITE);
+					        date.setForeground(Color.black);
 					        date.setVerticalAlignment(SwingConstants.TOP);
 					        date.setHorizontalAlignment(SwingConstants.TRAILING);
 					        date.setBackground(Color.black);
@@ -64,7 +64,7 @@ public class NewDisplay {
 					        JButton weather = new JButton(contentView.toString());
 					       //weather.setIcon(image);
 					        weather.setFont(new Font("Helvetica", Font.BOLD, 70));
-					        weather.setForeground(Color.WHITE);
+					        weather.setForeground(Color.black);
 					        weather.setVerticalAlignment(SwingConstants.TOP);
 					        weather.setBorderPainted(true);
 					        //weather.setBackground(Color.BLACK);

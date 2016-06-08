@@ -116,9 +116,10 @@ public class date {
 		String time = "";
 		
         Calendar cal = Calendar.getInstance();
-        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+        SimpleDateFormat hour = new SimpleDateFormat("h:m a");
+        
 		
-        time  += sdf.format(cal.getTime()) ;
+        time  += hour.format(cal.getTime()) ;
 
 		return time;
 		

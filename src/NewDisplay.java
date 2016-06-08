@@ -1,10 +1,10 @@
 //import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Font;
 import java.awt.HeadlessException;
 import java.io.IOException;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -38,7 +38,7 @@ public class NewDisplay {
 					       // contentView.setBackground(Color.BLACK);
 					        
 					      
-					        	contentView = new ContentPanel(null);
+					        	contentView = new ContentPanel();
 					        	
 					    	
 					    	//	e.printStackTrace();
@@ -50,8 +50,9 @@ public class NewDisplay {
 					        JButton date = new JButton(titleView.toString());
 					        date.setBackground(Color.black);
 					        date.setFont(new Font("Helvetica", Font.BOLD, 70));
-					        date.setForeground(Color.BLACK);
+					        date.setForeground(Color.WHITE);
 					        date.setVerticalAlignment(SwingConstants.TOP);
+					        date.setHorizontalAlignment(SwingConstants.TRAILING);
 					        date.setBackground(Color.black);
 					        //date.setForeground(Color.black);
 					        this.setBackground(Color.black);
@@ -63,7 +64,7 @@ public class NewDisplay {
 					        JButton weather = new JButton(contentView.toString());
 					       //weather.setIcon(image);
 					        weather.setFont(new Font("Helvetica", Font.BOLD, 70));
-					        weather.setForeground(Color.BLACK);
+					        weather.setForeground(Color.WHITE);
 					        weather.setVerticalAlignment(SwingConstants.TOP);
 					        weather.setBorderPainted(true);
 					        //weather.setBackground(Color.BLACK);
@@ -95,4 +96,5 @@ public class NewDisplay {
 	        }
 	    });
 	}
+	
 }

@@ -11,12 +11,12 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 abstract class datePanel extends JPanel {
-   private static final float FONT_SIZE = 50f;
+   private static final float FONT_SIZE = 100f;
  
    
    private JButton next = new JButton("Next");
  
-   public datePanel(String name,Graphics g) {
+   public datePanel(String name) {
 	   
       setName(name);
       JLabel label = new JLabel(getName(), SwingConstants.CENTER);
@@ -37,6 +37,7 @@ abstract class datePanel extends JPanel {
    }
  
    public void addNextActionListener(ActionListener listener) {
-      next.addActionListener(listener);
-   }
+      //next.addActionListener(listener);
+	 //  next.getActionMap().put("A_pressed", next);
+}
 }

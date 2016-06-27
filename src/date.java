@@ -22,7 +22,7 @@ public class date {
 		
         String dayEnd;
         switch (dayEnding%10) {
-            case 1:  dayEnd = "ist";
+            case 1:  dayEnd = "st";
                      break;
             case 2:  dayEnd = "nd";
                      break;
@@ -110,6 +110,25 @@ public class date {
 		date test = new date();
 		String date = test.getDayofWeek() + ","+test.getMonth() +","+ test.getDay();
 		return date;
+		
+	}
+	String getTime(){
+		String time = "";
+		
+        Calendar cal = Calendar.getInstance();
+        int hrs = cal.get(Calendar.HOUR);
+        if (hrs > 12) {
+        	hrs = hrs - 12;
+        }
+        int mins = cal.get(Calendar.MINUTE);
+        time = "" + hrs + ":" + mins;
+        time = String.format("%02d:%02d", hrs, mins);
+       // SimpleDateFormat hour = new SimpleDateFormat("h:m a");
+        
+		
+      //  time  += hour.format(cal.getTime()) ;
+
+		return time;
 		
 	}
 	

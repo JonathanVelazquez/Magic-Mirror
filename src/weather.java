@@ -21,12 +21,9 @@ public  static void main(String args[]) throws JAXBException, IOException{
 		YahooWeatherService service = new YahooWeatherService();
 		Channel channel = service.getForecast("2367188", DegreeUnit.FAHRENHEIT);
 		service.getForecast("2367188", DegreeUnit.FAHRENHEIT);
-		
-		
 	}
 	 static void todayWeather() throws JAXBException, IOException
 	{
-		
 		YahooWeatherService service = new YahooWeatherService();
 		System.out.println(service.getForecast("2367188", DegreeUnit.FAHRENHEIT));
 		
@@ -40,7 +37,7 @@ public  static void main(String args[]) throws JAXBException, IOException{
 		
 		Channel channel = service.getForecast("2367188", DegreeUnit.FAHRENHEIT);
 		
-		String toString = channel.getItem() +"";
+		String toString = channel.getItem() + "";
 		System.out.println(channel.getDescription());
 		return toString;
 		
